@@ -1,4 +1,5 @@
 import { Car } from "./models/Car.js"
+import { House } from "./models/House.js"
 import { Value } from "./models/Value.js"
 import { EventEmitter } from "./utils/EventEmitter.js"
 import { isValidProp } from "./utils/IsValidProp.js"
@@ -39,9 +40,44 @@ class ObservableAppState extends EventEmitter {
     }),
   ]
 
+  houses = [
+    new House({
+      name: 'Random Place',
+      year: '1974',
+      bedrooms: 3,
+      bathrooms: 2.5,
+      sqft: 1400,
+      price: 375000,
+      description: 'Newly renovated mid-century modern home',
+      imgUrl: 'https://images.unsplash.com/photo-1605146769289-440113cc3d00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
+    }),
+    new House({
+      name: 'Eagle House',
+      year: '2002',
+      bedrooms: 4,
+      bathrooms: 3.5,
+      sqft: 3600,
+      price: 849000,
+      description: 'Nice yard size, 2 master bedrooms',
+      imgUrl: 'https://images.unsplash.com/photo-1592595896616-c37162298647?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
+    }),
+    new House({
+      name: 'Livermore House',
+      year: '1954',
+      bedrooms: 3,
+      bathrooms: 1.5,
+      sqft: 1600,
+      price: 635000,
+      description: 'Converted garage into bonus space',
+      imgUrl: 'https://images.unsplash.com/photo-1628624747295-ea5e7fc3d76f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
+    })
+  ]
+
+
   // NOTE Used to load initial data
   init() {
     this.cars = loadState('cars', [Car])
+    this.houses = loadState('houses', [House])
   }
 
 }
